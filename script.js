@@ -1,3 +1,6 @@
+var hour = dayjs().hour();
+
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that the code isn't run until the browser has finished rendering all the elements in the html.
 
 // TODO: Add a listener for click events on the save button.
@@ -13,11 +16,31 @@ localStorage.setItem(this.parentElement.id, description_val);
 
 // TODO: Add code to get any user input that was saved in localStorage and set the values of the corresponding textarea elements. 
 $(function () {
+  console.log(hour);
   var children = document.getElementById("container").children;
 
   for (c of children) {
     var el = document.getElementById(c.id);
     $(el).children('#description').val(localStorage.getItem(c.id));
+
+  // removing the 'hour-' from the id on each hour and turning into integer
+    var hourId = parseInt(c.id.replace('hour-', ''), 10); 
+
+
+  // TODO: Add code to apply the past, present, or future class to each time block by comparing the id to the current hour. 
+  if (hourId) {
+    if (hourId < hour) {
+      console.log("past")
+      console.log(hourId);
+    } 
+    else if(hourId === hour) {
+      console.log("present")
+    }
+    else {
+      console.log("future");
+      console.log(hourId);
+    }
+  }
   }
 
   // var calendarInput = document.getElementById("description")
@@ -30,7 +53,11 @@ $(function () {
 
     
 
-    // TODO: Add code to apply the past, present, or future class to each time block by comparing the id to the current hour. 
+    
+
+    
+
+    
     
     //HINTS: How can the id attribute of each time-block be used to conditionally add or remove the past, present, and future classes? How can Day.js be used to get the current hour in 24-hour time?
     
@@ -39,8 +66,8 @@ $(function () {
     //HINT: How can the id attribute of each time-block be used to do this? 
     
     // TODO: Add code to display the current date in the header of the page.
-    var todaysDate = dayjs().format('dddd, MMMM D, YYYY'); 
-    $('#currentDay').text(todaysDate); 
+    var today = dayjs().format('dddd, MMMM D, YYYY'); 
+    $('#currentDay').text(today); 
   });
 
   function addInputToLocalStorage() {
