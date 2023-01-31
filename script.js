@@ -30,35 +30,23 @@ $(function () {
   // TODO: Add code to apply the past, present, or future class to each time block by comparing the id to the current hour. 
   if (hourId) {
     if (hourId < hour) {
-      console.log("past")
-      console.log(hourId);
+     el.classList.add("past")
+      // console.log("past")
+      // console.log(hourId);
     } 
     else if(hourId === hour) {
-      console.log("present")
+      el.classList.add("present")
+      // console.log("present")
     }
     else {
-      console.log("future");
-      console.log(hourId);
+      el.classList.add("future")
+      // console.log("future");
+      // console.log(hourId);
     }
   }
   }
-
-  // var calendarInput = document.getElementById("description")
-  // var buttonEl = document.getElementById("saveBtn");
-
-
-  // console.log(calendarInput);
-  // localStorage.setItem(buttonEl.parentElement.id, calendarInput.value);
   
-
-    
-
-    
-
-    
-
-    
-    
+  
     //HINTS: How can the id attribute of each time-block be used to conditionally add or remove the past, present, and future classes? How can Day.js be used to get the current hour in 24-hour time?
     
   
@@ -74,3 +62,4 @@ $(function () {
     var val
   }
   
+ 
