@@ -50,7 +50,7 @@ $(function () {
   });
 
   function addInputToLocalStorage() {
-    var val
+
   }
   
  
