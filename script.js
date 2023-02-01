@@ -8,6 +8,7 @@ $(saveBtn).click(function() {
 var description_val = $(this.parentElement).children('#description').val();
 
 console.log(description_val);
+//this sets the key and then the value that will be reflected in local storage
 localStorage.setItem(this.parentElement.id, description_val);
 });
 
@@ -16,11 +17,12 @@ $(function () {
   console.log(hour);
   var children = document.getElementById("container").children;
 
+  //this for loop grabs what is in localstorage and populates it onto the page. 
   for (c of children) {
     var el = document.getElementById(c.id);
     $(el).children('#description').val(localStorage.getItem(c.id));
 
-  // removes the 'hour-' from the id on each hour and turns it into integer
+  // removes the 'hour-' from the id on each hour and turns it into integer. The 10 indicates that it is a base 10 number
     var hourId = parseInt(c.id.replace('hour-', ''), 10); 
 
 
@@ -49,8 +51,3 @@ $(function () {
     $('#currentDay').text(today); 
   });
 
-  function addInputToLocalStorage() {
-
-  }
-  
- 
